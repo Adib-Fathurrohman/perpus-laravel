@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->year('tahun_terbit');
             $table->enum('genre', ['Fiksi', 'Non-Fiksi', 'Mystery', 'Romance', 'Horror', 'Biography', 'Science Fiction', 'History'])->nullable();
-            $table->integer('jumlah_buku')->unsigned()->default(0);
+            $table->integer('stok')->unsigned()->default(0);
             $table->timestamps();
         });
     }

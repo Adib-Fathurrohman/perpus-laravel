@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('petugas', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_petugas');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable(true)->default('');
+            $table->string('no_telepon')->nullable(true)->default('');
             $table->timestamps();
         });
     }
