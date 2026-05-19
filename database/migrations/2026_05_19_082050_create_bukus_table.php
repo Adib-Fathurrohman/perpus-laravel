@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bukus', function (Blueprint $table) {
-            $table->id();
+            $table->string('isbn')->primary();
+            $table->string('judul_buku');
+            $table->string('pengarang');
+            $table->string('penerbit');
+            $table->year('tahun_terbit');
+            $table->enum('genre', ['Fiksi', 'Non-Fiksi', 'Mystery', 'Romance', 'Horror', 'Biography', 'Science Fiction', 'History'])->nullable();
+            $table->integer('jumlah_buku')->unsigned()->default(0);
             $table->timestamps();
         });
     }
