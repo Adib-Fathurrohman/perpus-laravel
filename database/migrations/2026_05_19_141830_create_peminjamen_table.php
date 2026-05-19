@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->id('id_peminjaman');
-            $table->string('isbn');
-            
             $table->foreignId('id_peminjam')->constrained('peminjams')->onDelete('cascade');
             $table->foreignId('id_petugas')->constrained('petugas')->onDelete('cascade');
             $table->foreignId('isbn')->constrained('bukus')->onDelete('cascade');
